@@ -11,8 +11,10 @@
 	7. 
 		URI : 클론할 깃 저장소 주소
 		user : git아이디 
-		password : git패스워드
+		password : *토큰
+		
 	8. [ next ] -> [ finish ] 
+	
 	9. 현재 이클립스내 프로젝트를 clone된 저장소에 공유하기 
 		1. 공유할 프로젝트폴더 오른쪽 클릭 
 		2. [ team ] -> share project
@@ -26,11 +28,20 @@
 		[ unstaged changes ] : 커밋 전 , 수정된 파일 +
 		[ staged changes ] : 커밋 할 파일  -
 		[commit message] : 커밋 내용 
+		- [commit and push ] 클릭 
 		
-		
-		
-		
-		
+	* 토큰 발급 ( 외부에서 github 사용시 비밀번호 대체용 )
+		1. github 홈페이지 본인 프로필 로고 클릭 -> [settings] 클릭 
+		2. 왼쪽 사이드바 메뉴 가장 하단에 [Developer Settings] 클릭 
+		3. [Personal access tokens] 클릭 
+		4. tokens (classic) 클릭 
+		5. Generate new token 클릭 -> classic
+		6. 
+			Note : 토큰 식별명 , 아무거나 
+			Expiration : 유효기간 , NO Expiration 유효기간없음 선택 
+			모든 체크 권한 하기 
+			[Generate token]	
+		7. 토큰 발급코드 : ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 		
 		
 		
