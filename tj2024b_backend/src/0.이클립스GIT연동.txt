@@ -43,8 +43,5 @@
 			[Generate token]	
 		7. 토큰 발급코드 : ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 		
-		
-		
-		
 	
 		
