@@ -9,6 +9,7 @@ public class Example5 { // class start
 		
 		// 입력 방법 : prompt() 대신에 Scanner scan = new Scanner(System.in);  scan.nextXXX();
 		// 출력 방법 : console.log() 대신에 System.out.println();
+		// IF조건문 문법 없이 풀이
 		
 		// [지문1] 국어 , 영어 , 수학 점수를 각 입력받아서 각 변수에 저장하고 총점 과 평균을 계산하여 console탭에 출력하시오.
 		
