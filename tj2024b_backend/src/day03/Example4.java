@@ -1,5 +1,7 @@
 package day03;
 
+import java.util.Scanner;
+
 public class Example4 { // class s 
 	public static void main(String[] args) { // main s 
 
@@ -60,6 +62,49 @@ public class Example4 { // class s
 		 
 		 */
 		
+		Scanner scan = new Scanner(System.in); // - 입력객체 , 입력객체 안에 입력관련 함수가 제공한다.
+			// - Scanner 자동완성 하므로써 코드 최상단에 import java.util.Scanner; 같이 작성된다. 
+		// 문제1 : 점수를 정수형으로 입력받아 점수가 90점 이상이면 '합격' 아니면 '불합격' 출력 하시오.
+			// - 정수타입 : byte , short , int , long 중에서 고르기.
+			// - 자바에서 키보드로부터 입력받는 방법: 1. 입력객체 생성 2. 입력객체를 참조하는 변수명의 .nextXXX() 함수 활용
+				// - 정수타입 .nextByte() .nextShort() .nextInt() . nextLong() , -실수타입 : .nextFloat() .nextDouble()
+		System.out.print("[1] 점수 입력 하세요. ");
+		int 점수1 = scan.nextInt();			// [1] 입력
+		if( 점수1 >= 90 ) {  				// [2] 처리 , 만약에 점수가 90점 이상이면 
+			System.out.println("합격"); 		// [3] 출력 
+		}else { 				// 아니면 
+			System.out.println("불합격");		// [3] 출력 
+		}// if end 
+		
+		// 문제2 : 점수를 정수형으로 입력받아 점수가 90점 이상이면 'A등급', 80점 이상이면 'B등급', 70점 이상이면 'C등급', 그외 '재시험' 으로 출력 하시오.
+		System.out.print("[2] 점수 입력 하세요. ");
+		int 점수2 = scan.nextInt();
+		if( 점수2 >= 90 ) {
+			System.out.println("A등급");
+		}else if( 점수2 >= 80 ) {
+			System.out.println("B등급");
+		}else if( 점수2 >= 70 ) {
+			System.out.println("C등급");
+		}else {
+			System.out.println("재시험");
+		} // if end 
 		
 	} // main e 
 } // class e 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
