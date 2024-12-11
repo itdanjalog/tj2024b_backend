@@ -64,30 +64,57 @@ public class Example4 { // class s
 		
 		Scanner scan = new Scanner(System.in); // - 입력객체 , 입력객체 안에 입력관련 함수가 제공한다.
 			// - Scanner 자동완성 하므로써 코드 최상단에 import java.util.Scanner; 같이 작성된다. 
+		
 		// 문제1 : 점수를 정수형으로 입력받아 점수가 90점 이상이면 '합격' 아니면 '불합격' 출력 하시오.
 			// - 정수타입 : byte , short , int , long 중에서 고르기.
 			// - 자바에서 키보드로부터 입력받는 방법: 1. 입력객체 생성 2. 입력객체를 참조하는 변수명의 .nextXXX() 함수 활용
 				// - 정수타입 .nextByte() .nextShort() .nextInt() . nextLong() , -실수타입 : .nextFloat() .nextDouble()
-		System.out.print("[1] 점수 입력 하세요. ");
-		int 점수1 = scan.nextInt();			// [1] 입력
-		if( 점수1 >= 90 ) {  				// [2] 처리 , 만약에 점수가 90점 이상이면 
-			System.out.println("합격"); 		// [3] 출력 
-		}else { 				// 아니면 
-			System.out.println("불합격");		// [3] 출력 
-		}// if end 
+//		System.out.print("[1] 점수 입력 하세요. ");
+//		int 점수1 = scan.nextInt();			// [1] 입력
+//		if( 점수1 >= 90 ) {  					// [2] 처리 , 만약에 점수가 90점 이상이면 
+//			System.out.println("합격"); 		// [3] 출력 
+//		}else { 										// 아니면 
+//			System.out.println("불합격");		// [3] 출력 
+//		}// if end 
 		
 		// 문제2 : 점수를 정수형으로 입력받아 점수가 90점 이상이면 'A등급', 80점 이상이면 'B등급', 70점 이상이면 'C등급', 그외 '재시험' 으로 출력 하시오.
-		System.out.print("[2] 점수 입력 하세요. ");
-		int 점수2 = scan.nextInt();
-		if( 점수2 >= 90 ) {
-			System.out.println("A등급");
-		}else if( 점수2 >= 80 ) {
-			System.out.println("B등급");
-		}else if( 점수2 >= 70 ) {
-			System.out.println("C등급");
-		}else {
-			System.out.println("재시험");
+//		System.out.print("[2] 점수 입력 하세요. ");
+//		int 점수2 = scan.nextInt();
+//		if( 점수2 >= 90 ) {
+//			System.out.println("A등급");
+//		}else if( 점수2 >= 80 ) {
+//			System.out.println("B등급");
+//		}else if( 점수2 >= 70 ) {
+//			System.out.println("C등급");
+//		}else {
+//			System.out.println("재시험");
+//		} // if end 
+		
+		// 문제3 : 각 3개의 정수형으로 수를 입력받아 가장 큰 수를 출력 하시오. [ 전제조건 : 각 정수는 서로 다른 정수값 ]
+		// 1. [ 입력 ] , 각 int형 타입으로 입력받아 int형 타입 변수에 각 대입 한다 .
+		int 정수1 = scan.nextInt();		int 정수2 = scan.nextInt();		int 정수3 = scan.nextInt();
+		// 2. [ 처리 ] , 3개의 변수들간의 값 비교
+		int max = 정수1; 						// 첫번째 값을 최댓값으로 설정하고 
+		if( max < 정수2 ) { max = 정수2;}		// 만일 두번째 값이 최댓값보다 크면 두번째 값을 최댓값으로 대입
+		if( max < 정수3 ) { max = 정수3;}		// 만일 세번째 값이 최댓값보다 크면 세번째 값을 최댓값으로 대입
+		// 3. [ 출력 ] 
+		System.out.println( max );
+		
+		// 문제4 : 각 3개의 정수형으로 수를 입력받아 오름차순 순서대로 출력하시오. [ 전제조건 : 각 정수는 서로 다른 정수값 ]
+		// 1. [입력] , 각 int형 타입으로 입력받아 int형 타입 변수에 각 대입 한다.
+		int value1 = scan.nextInt();	int value2 = scan.nextInt();	int value3 = scan.nextInt();
+		// 2. [처리] , 3개의 변수들간의 값 비교 , 오름차순:작->큰 / 내림차순 : 큰->작
+			// (1) 비교 , 조건 3개 
+				// 조건1. 첫번째값 > 두번째값 // 조건2. 첫번째값 > 세번쨰값 // 조건3. 두번째값 > 세번째값
+			// (2) 스왑 , 두 변수간의 값 바꾸기. , temp변수를 활용한 두 변수간의 값 바꾸기.
+				// int temp = 첫번째변수값;  ,  첫번째변수명 = 두번째변수값; , 두번째변수명 = temp값 ;
+		if( value1 > value2 ) { // 만약에 첫번째값이 두번째값보다 크면 , (오름차순) 큰값 뒤로 보내기 , > 오름차순 < 내림차순
+			int temp = value1;   value1 = value2; 	value2 = temp;
 		} // if end 
+		if( value1 > value3 ) { int temp = value1;	value1 = value3;	value3 = temp; } // if end 
+		if( value2 > value3 ) { int temp = value2; 	value2 = value3;	value3 = temp; } // if end 
+		// 3. [출력]
+		System.out.println( value1 ); System.out.println( value2 );	System.out.println( value3 );
 		
 	} // main e 
 } // class e 
