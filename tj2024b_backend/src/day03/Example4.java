@@ -115,7 +115,7 @@ public class Example4 { // class s
 		if( value2 > value3 ) { int temp = value2; 	value2 = value3;	value3 = temp; } // if end 
 		// 3. [출력]
 		System.out.println( value1 ); System.out.println( value2 );	System.out.println( value3 );
-		
+
 	} // main e 
 } // class e 
 
