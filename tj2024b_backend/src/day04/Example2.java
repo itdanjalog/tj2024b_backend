@@ -84,7 +84,7 @@ public class Example2 { // class s
 		}while( gob2 <= 9 );	// 3. 조건식 		// 후 조건검사 
 		
 		// 3. for문 
-		for( int gob3 = 1 ; gob3 <= 9 ; gob3++ ) {
+		for( int gob3 = 1 ; gob3 <= 9 ; gob3++ ) { // 1.초기값 ; 2.조건식 ; 3.증감식
 			System.out.printf(" 2 X %d = %d \n" , gob3 , (2*gob3) );
 		} // for end 
 		
