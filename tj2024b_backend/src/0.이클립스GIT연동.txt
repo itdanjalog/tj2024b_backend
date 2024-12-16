@@ -42,6 +42,41 @@
 			모든 체크 권한 하기 
 			[Generate token]	
 		7. 토큰 발급코드 : ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
+[ 이클립스 GIT 저장소 삭제 ] 
+	1. 저장소 오른쪽 클릭
+	2. [delete]
+	3. [Delete Repository]
+	4. 삭제 옵션 모두 체크 --> [delete]
+
+[ 이클립스 GIT 저장소 변경/불러오기 ]
+	1. 상단 메뉴 -> [window]
+	2. [ SHOW VIEW ] -> [other]
+	3. [GIT] -> [GIT Repositories]
+	4. [Clone a git repository]
+	5. [clone url]
+		1. url : clone 할 저장소 링크
+		2. user : git id
+		3. password : git 토큰 번호
+		* 토큰 분실시 재발급
+	6. [next] -> [finish]
+	8.  [GIT Repositories]창에서 가져온 저장소 확인 
+	7. 저장소 아래 working Tree 폴더 확인 
+		-> working Tree 폴더 아래 프로젝트명 오른쪽 클릭 
+		-> import project 
+	
+	- commit/push 할때 서명 아이디/이메일 
+	1. 상단 메뉴 -> [window] ->  [ SHOW VIEW ] -> [terminal] -> terminal
+	2. 모니터 아이콘 클릭 -> choose terminal -> git bash -> [ok]
+		확인시 : git config --global user.name
+		변경시 : git config --global user.name 변경할git아이디
 		
+		확인시 : git config --global user.email
+		변경시 : git config --global user.email 변경할email주소 
+
+
+	
 	
 		
