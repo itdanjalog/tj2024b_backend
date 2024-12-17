@@ -22,9 +22,9 @@ public class BoardProgram2 { // class start
 			int choose = scan.nextInt(); 			// [3] 입력함수 , Scanner , 
 			// [4] 조건문 , if , 코드의 흐름제어
 			if( choose == 1 ) { System.out.println(">> 등록 선택했습니다.");
-				System.out.println("> 제목 : "); 		String title = scan.next();
-				System.out.println("> 내용 : "); 		String content = scan.next();
-				System.out.println("> 작성자 : ");	String writer = scan.next();
+				System.out.print("> 제목 : "); 		String title = scan.next();
+				System.out.print("> 내용 : "); 		String content = scan.next();
+				System.out.print("> 작성자 : ");		String writer = scan.next();
 				if( board1.title == null ) { // [6] 첫번째 객체의 내용물이 비어 있으면 대입 
 					board1.title = title; board1.content = content; board1.writer = writer;
 				}else if( board2.title == null  ) {
@@ -35,13 +35,13 @@ public class BoardProgram2 { // class start
 			} // if end 
 			else if( choose == 2 ) { System.out.println(">> 출력 선택했습니다.");
 				if( board1.title != null ) {
-					System.out.println("제목:" + board1.title +" / 내용:" + board1.content + "/작성자:"+board1.writer );
+					System.out.println("제목:" + board1.title +"/내용:" + board1.content + "/작성자:"+board1.writer );
 				}
 				if( board2.title != null ) {
-					System.out.println("제목:" + board2.title +" / 내용:" + board2.content + "/작성자:"+board2.writer );
+					System.out.println("제목:" + board2.title +"/내용:" + board2.content + "/작성자:"+board2.writer );
 				}
 				if( board3.title != null ) {
-					System.out.println("제목:" + board3.title +" / 내용:" + board3.content + "/작성자:"+board3.writer );
+					System.out.println("제목:" + board3.title +"/내용:" + board3.content + "/작성자:"+board3.writer );
 				}
 			} // elseif end 
 		} // w end 
