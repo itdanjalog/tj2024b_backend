@@ -13,7 +13,6 @@ import java.util.Scanner;
 // (1) main 함수를 갖는 실행 클래스 로 사용
 public class BoardProgram3 { // class start 
 	public static void main(String[] args) { // main start 
-		
 		// [5] 클래스 정의하기 , 게시물 타입 만들기 
 		// ++ 동일한 클래스의 서로 다른 객체를 저장하기위한 *배열* 선언하기
 		// + 초기화를 하지 않고 int(정수) 타입의 서로 다른 정수값 100개 저장 가능한 배열 선언	, 정수 0 이 100 개 생성 
@@ -64,6 +63,7 @@ public class BoardProgram3 { // class start
 			}
 		} // while end 
 	} // main end
+	
 } // class end 
 
 
