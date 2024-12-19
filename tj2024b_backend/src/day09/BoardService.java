@@ -42,8 +42,8 @@ public class BoardService { // class s
 						index  , board.title , board.content , board.writer );
 			}
 		} // for end 
-		
 	} // m end 
+	
 } // class e 
 
 

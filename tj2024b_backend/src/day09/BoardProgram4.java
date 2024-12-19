@@ -9,7 +9,6 @@ import java.util.Scanner;
 - 게시물 클래스 설계 하기.
 - 게시물 최대 100개 저장 하기 , 게시물1개당 객체 1개 필요 , 객체1개당 3개의 멤버변수를 갖는다.
 */
-
 public class BoardProgram4 { // class start 
 	public static void main(String[] args) { // main start 
 		// (1) 게시물 기능(함수) 을 제공하는 서비스 객체 생성 
