@@ -11,8 +11,10 @@ import java.util.Scanner;
 */
 public class BoardProgram4 { // class start 
 	public static void main(String[] args) { // main start 
+		
 		// (1) 게시물 기능(함수) 을 제공하는 서비스 객체 생성 
 		BoardService bs = new BoardService();
+		
 		// (2) 게시물 객체 여러개를 저장하는 배열 생성 
 		Board[] boards = new Board[100];
 		while(true) { // w s
@@ -24,6 +26,7 @@ public class BoardProgram4 { // class start
 			}else if( choose == 2 ) {
 				bs.boardPrint( boards  ); // (1) 객체를 통한 메소드 호출 
 			}
+			
 		} // w end
 	}// main end 
 } // class end 
