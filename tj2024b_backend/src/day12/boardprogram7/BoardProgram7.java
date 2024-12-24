@@ -26,7 +26,7 @@ public class BoardProgram7 { // class start
 		BoardService bs = new BoardService();
 		
 		while(true) {
-			System.out.print("\n 1.회원가입 2.로그인 : ");
+			System.out.print("\n1.회원가입 2.로그인 : ");
 			Scanner scan = new Scanner(System.in);
 			int choose = scan.nextInt();
 			if( choose == 1 ) {// 회원가입 함수 호출 
