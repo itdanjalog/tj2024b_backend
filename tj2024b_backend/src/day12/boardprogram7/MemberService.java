@@ -19,14 +19,12 @@ public class MemberService {
 			}
 		}
 	} // f end 
-	
 	public String login( Scanner scan , MemberDto[] members ) {
 		System.out.print("아이디 : ");	String id = scan.next();
 		System.out.print("비밀번호 : ");	String pwd = scan.next();
 		// * 기존회원목록에서 방금 입력받은 값과 비교하여 동일값 찾기
 		for( int index = 0 ; index <= members.length -1 ; index++ ) {
 			MemberDto memberDto = members[index];
-			System.out.println( memberDto );
 			if( memberDto != null ) {
 				if( memberDto.getId().equals( id ) && memberDto.getPwd().equals(pwd) ) {
 					System.out.println("로그인 성공");

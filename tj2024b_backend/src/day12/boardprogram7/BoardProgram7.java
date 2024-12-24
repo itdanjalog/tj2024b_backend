@@ -15,11 +15,15 @@ import java.util.Scanner;
 */
 
 public class BoardProgram7 { // class start 
-	public static void main(String[] args) { // main start 
+	public static void main(String[] args) { // main start
+		
 		// 공통으로 사용되는 저장소 변수
 		MemberDto[] members = new MemberDto[100];
 		MemberService ms = new MemberService();
-		String loginId = null;
+		// + 로그인 안했을때 null 저장 , 로그인 했으면 아이디 저장 , 목적으로 운영할 변수. // 로그인 증거
+		String loginId = null; 
+		BoardDto[] boards = new BoardDto[100];
+		BoardService bs = new BoardService();
 		
 		while(true) {
 			System.out.print("\n 1.회원가입 2.로그인 : ");
@@ -30,7 +34,23 @@ public class BoardProgram7 { // class start
 			}
 			else if( choose == 2 ) {// 로그인 함수 호출 
 				loginId = ms.login(scan, members);
-			}
+				if( loginId != null ) { // 로그인 했다. 
+					while(true) {
+						System.out.println("1. 등록 2. 출력 3. 로그아웃 ");
+						int choose2 = scan.nextInt();
+						if( choose2 == 1 ) {
+							bs.boardAdd( scan, boards, loginId);
+						}
+						else if( choose2 == 2 ) {
+							bs.boardPrint(boards);
+						}
+						else if( choose2 == 3 ) {
+							loginId = null; // 로그인상태를 null 수정함으로써 증거 없애기
+							break; // 가장 가까운 반복문 종료.
+						}
+					} // w end 
+				} // if end 
+			} // else if end 
 		} // w end 
 	} // main end 
 } // class end 
