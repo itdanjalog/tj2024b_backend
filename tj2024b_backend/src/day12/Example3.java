@@ -38,7 +38,37 @@ class Student1{
 		studentName = name ; 
 	}
 } // class end 
- 
+
+class Student2{
+	// static변수에 private
+	private static int serialNum = 1000;
+	public int studentID;
+	public String studentName;
+	public int grade;
+	public String address;
+	
+	public Student2() {
+		serialNum++;	
+		studentID = serialNum; 
+	}
+	public static int getSerialNum() {
+		int i = 10;
+		// return this.serialNum;
+		return serialNum; 
+	}
+	public static void setSerialNum( int serialNum  ) {
+		// this.serialNum = serialNum;
+		Student2.serialNum = serialNum;
+	}
+	
+	public String getStudentName() { 
+		return studentName; 
+	}
+	public void setStudentName( String name ) { 
+		studentName = name ; 
+	}
+	
+} // class end 
 
 public class Example3 { // class start 
 	public static void main(String[] args) {
@@ -69,6 +99,10 @@ public class Example3 { // class start
 		// 예3] 클래스 변수 // 클래스명.static변수명
 		System.out.println( Student.serialNum );
 		System.out.println( Student1.serialNum );
+		
+		// 예4]
+		// Student2.serialNum; // static변수도 private 외부클래스 접근불가능.
+		System.out.println( Student2.getSerialNum() );
 		
 	}
 } // class end 
