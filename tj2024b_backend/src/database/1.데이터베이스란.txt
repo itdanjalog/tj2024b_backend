@@ -1,0 +1,102 @@
+[ 데이터베이스 ] 
+	- 데이터(자료) , 베이스(모임/집합)
+	1. 정의 : 자료들의 집합
+	2. 종류 
+		1. 관계형 데이터베이스		( 테이블 형식 )
+		2. NOSQL 데이터베이스 		( 객체 형식 )
+		등등
+		
+[ 관계형 데이터베이스 ]
+	1. 정의 : 
+		1. 행(가로) 과 열(세로) 로 이루어진 데이터의 집합 , 표/테이블
+		2. 테이블(표)을 고유/식별 값을 참조하여 다른 테이블 간의 종속되는 관계 표현 구조
+	2. 소프트웨어(DBMS)
+		1. Oracle , 2.MySQL , 3.MariaDB 등등
+	3. 필수 용어 
+		1. DB : 데이터베이스 
+		2. DBA : 데이터베이스 관리자
+		3. DBMS : 데이터베이스 관리 시스템 
+		4. DB SERVER : 데이터베이스가 설치된 PC
+			- SERVER : 자료를 제공 하는 
+			- CLIENT : 자료를 제공 받는 
+		5. SQL : 데이터베이스 를 조작하기 위해 사용되는 *언어*
+
+[ SQL ] : 데이터베이스에서 데이터를 추출 하고 조작하는데 사용되는 프로그래밍 언어 
+
+[ 환경설정/준비 ]
+	1. MYSQL SERVER / MYSQL Workbench 설치 파일 다운로드
+		1. https://dev.mysql.com/downloads/
+		2. [[MySQL Installer for Windows]] 클릭 
+		3. [확인] Select Version: 8.x , Select Operating System: window 
+		4. Windows (x86, 32-bit), MSI Installer	8.0.40	306.5M	[[ Download ]] 클릭 
+		5. 하단에 [[No thanks, just start my download.]] 클릭 
+		
+	2. 설치파일 실행 
+		1. Setup Type : [[Custom]] 체크 --> [다음]
+		2. select products : 아래 2가지를 오른쪽에 넣어주기. --> [ Next ]
+			1. MySQL server 8.xx
+			2. MYSQL Workbench 8.xx
+		3. [Execute] --> 대기 --> 완료 --> [next] -> [next]
+		4. [확인] **port** : 3306 --> [next] --> [next]
+		5. [**password**] 1234 --> [next] --> [next] --> [next]
+		6. [Execute] --> 대기 --> [Finish] --> [next] -->  [Finish]
+		
+	3. 환경설치 학인 
+		1. MYSQL Workbench 프로그램 실행 
+		2. 메인화면에 [ Local instance MySQL80 ] 구역이 있으면 성공 
+		
+	4. Workbench를 통한 DB SERVER 접속 
+		1. [ Local instance MySQL80 ]  클릭 
+		2. 비밀번호 입력후 --> [ok]
+
+
+	[프론트엔드]						[ 백엔드 ]
+	HTML/CSS/JS	---------통신-------> JAVA -------------> db(mysql)
+
+	1. [프론트엔드] HTML/CSS/JS
+	2. [ 백엔드 ] JAVA/DB
+	3. [ 웹개발 ] HTML/CSS/JS(JSP) 	<------> JAVA(서블릿)		/ DB
+	4. [ 웹개발 ] REACT(HTML/CCS/JS) 	<------> JAVA(SPRING) 	/ DB
+	5. [ 앱개발 ] 플러터				<------> JAVA(SPRING)	/ DB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
