@@ -72,7 +72,7 @@
 		
 		[ 주의할점 ] : 개발자 위 흐름순서가 다르게 코드 작성이 가능하지만 관례적인 패턴규칙으로 위 흐름으로 코드를 작성해야한다.
 		
-[실습 예1]
+[실습 예1 ]
 	- day13 패키지* 
 		- boardprogram8 패키지*
 			- controller 패키지*
@@ -84,24 +84,46 @@
 					- BoardDto 클래스			*싱글톤X	, 서로다른 클래스간의 데이터이동시 사용되는 클래스 
 			- view 패키지*
 				- BoardView 클래스 			*싱글톤O 	, 게시물의 입출력를 담당하는 클래스  
-			- AppStart 클래스 				*싱글톤X	, 프로그램 시작하는 클래스(main)
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			- AppStart 클래스 	
+[ 실습 예2 ]
+
+				[view]					[controller]					[dao]
+
+게시물등록
+	- [BoardDto]boardDto : view에서 사용자로부터 입력받은 title,content,writer 3가지 정보를 하나의 객체로 구성.
+		-> 이동할때 3개 이동하는게 좋은지 1개가 이동하는게 좋은지??
+	- [boolean] true/false : dao 에서 등록 처리 결과를 성공 과 실패를 표현하기위해 임의로 성공하면 true 실패하면 false 구성
+						-------------->				----------------->
+						[BoardDto]boardDto			[BoardDto]boardDto
+						<--------------				<-----------------
+						[boolean]true/false			[boolean]true/false
+게시물출력 
+	- x : 출력 요청 시 요구사항이 없으니까.
+	- [ BoardDto[] ] boards : dao 에서 관리하는 모든 게시물목록[배열]을 view에게 전달하기위해서 
+						-------------->				------------------>
+								x							x
+						<---------------			<------------------
+						[ ArrayList<BoardDto> ] boards		[ ArrayList<BoardDto> ] boards
+게시물삭제
+	- [int] dIndex : 삭제가 가능하도록 고유한 식별번호 , 인덱스 , 게시물번호
+	- [boolean] true/false : dao 에서 삭제 처리 성공/실패 여부를 true/false 로 구성하여 반환 
+						--------------->			------------------>
+						[int] dIndex				[int] dIndex
+						<--------------				<------------------
+						[boolean]true/false			[boolean]true/false			
+게시물수정 
+	- [int] uIndex ,[BoardDto] boardDto	 : 수정시 수정할 식별번호 와 수정할 값들을(객체) 보낸다.
+	- [boolean] true/false : dao 에서 수정 처리 성공/실패 여부를 true/false 로 구성하여 반환 
+						--------------->			------------------>
+						[int] uIndex , 				[int] uIndex 
+						[BoardDto] boardDto			[BoardDto] boardDto
+						<--------------				<------------------
+						[boolean]true/false			[boolean]true/false		
+
+
+
+
+
 		
 		
 		
