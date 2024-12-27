@@ -56,8 +56,26 @@ public class BoardView {
 	
 	// 3. 게시물 수정 페이지 함수 
 	public void update() { System.out.println("[U]");
+		// [1] 수정할 정보들을 입력받는다.
+		System.out.print("update Index : ");
+			int uIndex = scan.nextInt();
+		System.out.print("update Title : ");
+			String title = scan.next();
+		System.out.print("update Content : ");
+			String content = scan.next();
+		System.out.print("update writer : ");
+			String writer = scan.next();
+		// [2] 입력받은 값들을 객체로 만든다.
+		BoardDto boardDto = new BoardDto(title, content, writer);
+		// [3] 컨트롤러에게 수정할인덱스와 수정할객체를 전달하고 결과를 받는다.
+		boolean result = BoardController
+						.getInstance().update( uIndex , boardDto );
+		
+		// [4] 결과에 따른 메시지 출력한다.
+		if( result ) { System.out.println("[update success]");}
+		else { System.out.println("[update fail]");}
+	} // f end 
 	
-	}
 	// 4. 게시물 삭제 페이지 함수 
 	public void delete() { System.out.println("[D]");
 		// [1] 삭제할 인덱스(식별)번호를 입력받는다.
@@ -68,7 +86,7 @@ public class BoardView {
 		// [3] 처리결과에 따른 메시지 출력한다.
 		if( result ) { System.out.println("[delete success]");}
 		else { System.out.println("[delete fail]");}
-	}
+	} // f end 
 
 } // class end 
 
