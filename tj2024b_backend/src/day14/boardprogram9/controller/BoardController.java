@@ -32,6 +32,12 @@ public class BoardController {
 	// 3. 게시물 수정 제어 함수 
 	
 	// 4. 게시물 삭제 제어 함수 
+	public boolean delete( int dIndex ) {
+		// [1] 매개변수 받은 값들을 DAO에게 전달하고 처리 결과 를 받는다.
+		boolean result = BoardDao.getInstance().delete(dIndex);
+		// [2] VIEW에게 결과를 반환한다.
+		return result;
+	}
 	
 } // class end 
 

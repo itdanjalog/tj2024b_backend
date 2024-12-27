@@ -60,7 +60,14 @@ public class BoardView {
 	}
 	// 4. 게시물 삭제 페이지 함수 
 	public void delete() { System.out.println("[D]");
-	
+		// [1] 삭제할 인덱스(식별)번호를 입력받는다.
+		System.out.print("delete Index : "); 
+		int dIndex = scan.nextInt();
+		// [2] 삭제할 번호를 컨트롤에게 전달하고 처리결과를 받는다.
+		boolean result = BoardController.getInstance().delete( dIndex );
+		// [3] 처리결과에 따른 메시지 출력한다.
+		if( result ) { System.out.println("[delete success]");}
+		else { System.out.println("[delete fail]");}
 	}
 
 } // class end 

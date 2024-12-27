@@ -33,7 +33,17 @@ public class BoardDao {
 	// 3. 게시물 수정 처리 함수 
 	
 	// 4. 게시물 삭제 처리 함수 
-	
+	public boolean delete( int dIndex ) {
+		// [1] 리스트 에서 특정한 인덱스를 .remove()함수 이용하여 요소 삭제한다.
+		if( dIndex > boards.size() -1 ) { // 존재하지 않는 인덱스를 요청하면 
+			return false; // 실패 
+		}
+		
+		boards.remove(dIndex); // 삭제처리
+		
+		// [2] 삭제 결과를 반환한다.
+		return true; // 성공 
+	}
 	
 } // class end 
 
