@@ -35,7 +35,7 @@ create table testtable3( # 테이블 생성 시작 #주의할점 : DB 사용 활
 	실수필드1 float 		, 실수필드2 double		,
 	날짜필드 date 		, 시간필드 time 			, 날짜시간 datetime 	,
 	문자필드1 char(100)	, 문자필드2 varchar(100)	, 문자필드3 text		, 문자필드4 longtext ,
-	논리필드 bool 			# 마지막 필드 뒤에는 ,(쉼표) 넣지 않는다.
+	논리필드 bool 		# 마지막 필드 뒤에는 ,(쉼표) 넣지 않는다.
 ); # 테이블 생성 끝 
 show tables; # 전체 테이블 목록 조회 
 # [6] 특정한 테이블 조회 
@@ -54,6 +54,15 @@ create table board(
 ); 
 
 # 실습2 : day09 패키지의 WaitingService 의 DB 설계 하시오.
+create database waitingservice;				# 단계1 : DB서버의 DB 만들기 
+use waitingservice;							# 단계2 : DB서버의 사용할 DB 활성화 하기
+create table waiting(						# 단계3 : 활성화 한 DB내 테이블를 적절한 타입으로 선언한다.
+	phone char(13)	,	# 임의로 핸드폰번호는 13자리로 고정해서 사용 하겠는 설계		# String phone;
+	count int			# 임의로 인원수는 int 타입 설계 							# int count;
+);					
+show tables;	
+
+
 
 
 
