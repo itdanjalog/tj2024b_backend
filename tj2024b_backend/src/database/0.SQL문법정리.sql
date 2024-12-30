@@ -45,7 +45,7 @@
         text			문자열표현 , 최대 6만 글자
         longtext		문자열표현 , 최대 42억개 글자 , 4GB , 대용량 
 	5.[논리]
-		bool			true or false 표현 , tintyint 와 같다.	
+		bool			true or false 표현 , tinyint 와 같다.	
 		
 		
 		
