@@ -56,8 +56,11 @@
 	4. auto_increment	: (MYSQL만 가능) 레코드 삽입시 순서대로 자동 번호가 삽입 된다.
 	5. primary key 		: 기본/식별키-PK , 식별 가능한 고유 값 필드 키 		, 학번/사번/주민등록번호/주문번호/제품번호 등등
 		- PK필드는  not null 과 unique 포함된다.
+		- 선언 : constraint primary key( pk필드명 )
 	6. foreign key 		: 참조/외래키-FK , 다른 테이블의 기본키를 참조하는 키	
 		- FK필드는 null 과 중복 데이터를 가질수 있다.
+		- 선언 : constraint foreign key( fk필드명 ) references 참조할테이블명( 참조할필드명 )
+		
 	* 관계형 데이터베이스의 관례적으로 기본키PK 는 테이블당 1개 이상 갖는다.
 		
 		

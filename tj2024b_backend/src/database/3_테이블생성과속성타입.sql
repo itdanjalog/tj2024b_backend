@@ -62,6 +62,68 @@ create table waiting(						# 단계3 : 활성화 한 DB내 테이블를 적절�
 );					
 show tables;	
 
+# [7] 제약조건 : 테이블에서 문제/결함 되는 데이터가 입력되지 않도록 제약
+use mydb1230;
+create table testtable4(
+	# 필드명 타입 제약조건 
+    필드명1 tinyint not null ,		-- 지정한 필드에는 null를 대입할수 없다.
+    필드명2 smallint unique , 		-- 지정한 필드에는 중복값을 대입할 수 없다.
+    필드명3 int default 10	,		-- 지정한 필드에는 레코드삽입시 값을 생략하면 자동으로 기본값이 대입된다.
+    필드명4 bigint auto_increment, 	-- 지정한 필드에는 레코드삽입시 순서대로 자동번호가 대입된다.
+    PK필드명5 double ,
+    constraint primary key( PK필드명5 )  -- 지정한 필드를 pk필드로 설정 ( not null 과 unique 포함 )
+);
+create table testtable5(
+	FK필드명1 double ,
+    constraint foreign key( FK필드명1 ) references testtable4(PK필드명5) 
+    -- 지정한 필드를 fk필드로 설정 하고 참조할 pk필드가 위치한 테이블명과 pk필드명을 작성한다. 
+);
+# 실습1 : boardservice7 에서 회원제 게시판 DB 설계하시오. 회원테이블 , 게시판테이블 => 회원이 존재해야 게시물이 존재한다. 즉] 회원(PK) 게시물(FK)
+create database boardservice7;	use boardservice7;
+create table member( # 회원 테이블
+	mno int auto_increment	,	 -- 회원번호 는 자동번호를 부여하기 위해 auto_increment 제약조건 선택. / 회원번호 는 최대 20억 이상이 될 경우가 없을것 같아서 int타입 선택.
+    mid varchar(30) not null unique ,   -- 회원아이디는 공백이라는 아이디가 존재하면 안되서 not null 제약조건 선택 , / 회원아이디는 중복를 차단 해야 하므로 unique 제약조건 선택 ,
+    mpwd varchar(30) not null , -- 회원비밀번호는 공백을 차단하기 위해 not null 제약조건 선택 ,
+    mname varchar(10) not null ,  -- 회원명은 공백을 차단하기 위해 not null 제약조건 선택 , / 회원명은 최대 10글자까지 입력받기 위해  varchar(10) 으로 선택 
+	constraint primary key( mno )	-- 회원번호를 pk필드로 선정 , not null 과 unique 포함 
+); 
+create table board( # 게시판 테이블 
+	bno bigint auto_increment ,	# 게시물번호 는 자동번호를 부여하기 위해 auto_increment 사용 , 20억이상의 게시물번호를 표현하기 위해 bigint 사용.
+    btitle varchar(100) not null ,  # 게시물제목 은 공백을 없애기 위해 not null 사용 , 문자가 최대 100글자까지 가능하도록 사용
+    bcontent text , # 게시물내용 은 공백을 허용하고 , 최대 4GB 까지 대용량 입력 가능하도록 사용 
+    bdate datetime default now() , # 게시물작성일 에는 default 기본값에 now() 함수를 사용하면 자동으로 시스템 날짜/시간이 삽입된다.
+    bview int default 0 , # 게시물조회수 에는 기본값을 0으로 한다. 
+    constraint primary key( bno ), # 게시물번호를 pk필드로 선정 
+    mno int , # FK필드 # 회원번호FK # 참조할 필드와 동일한 타입으로 선정 
+    constraint foreign key( mno ) references member( mno ) # board테이블의 mno필드가 member테이블의 mno 필드를 참조한다.
+);
+
+# SQL 과제1 : 키오스크 개발의 메모리 설계 하고 DB와 테이블 생성을 SQL로 작성하여 제출 하시오.
+/*
+	https://www.youtube.com/watch?v=ksuYwD1oC3A
+	위 링크와 같은 프로그램을 만들기 위한 DB 설계를 하시오.
+	[요구사항]
+	1. 여러개 카테고리중에 카테고리를 선택을 해서 카테고리 별로 제품들을 출력/확인 한다.
+	2. 해당 제품을 선택해서 수량 입력받아 주문처리 한다. 단, 하나의 주문의 여러개 제품을 주문할수있다.
+	3. 주문번호를 받아서 대기한다.
+	4. 설계 조건
+		1. [ 메모리 설계 필수 속성 ]	
+		- 식별자코드 , 카테고리명 , 가격 , 제품명 , 주문수량 , 주문날짜 하되 추가 가능 합니다.
+		2. 테이블간의 데이터 중복을 최소화한다.
+		3. 총 테이블은 3개 이상으로 설계한다.
+		4. 적절한 타입과 제약조건을 최대한 활용하시오.
+        5. DB명 , 테이블명, 속성명은 임의로 합니다. 
+        
+	* 제출 : 카카오톡방에 SQL 과제 코드가 존재하는 본인 git 상세주소 제출 
+*/
+
+
+
+
+
+
+
+
 
 
 
