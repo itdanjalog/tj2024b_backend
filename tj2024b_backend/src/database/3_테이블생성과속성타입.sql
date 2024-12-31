@@ -117,6 +117,9 @@ create table board( # 게시판 테이블
 	* 제출 : 카카오톡방에 SQL 과제 코드가 존재하는 본인 git 상세주소 제출 
 */
 
+# https://docs.google.com/spreadsheets/d/1KdUcGaOcm3QW3OeiwOikTxZRsuWU_idvy2NTlV-IIpY/edit?usp=sharing
+
+
 
 
 

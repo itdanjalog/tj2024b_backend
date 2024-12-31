@@ -25,11 +25,11 @@
 	4. TCL : Transaction Control Language 트랜잭션 제어어
 	
 [데이터타입]
-	1.[정수]
+	1.[정수]	unsigned : 부호가 없다. 표현단위 2배 , 음수표현 불가능
 		tinyint		1바이트	-128 ~ +127		
         smallint	2바이트	+-3만정도			
         mediumint	3바이트	+-800만정도		
-        int			4바이트	+-21억이하
+        int			4바이트	+-21억이하	, int unsigned : 42억이하
         bingint		8바이트	+-21억이상 		
 	2.[실수]
 		float 		4바이트 	부동소수점(표현 범위 이상일 경우 오차 발생 )
