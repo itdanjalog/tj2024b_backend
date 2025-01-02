@@ -27,7 +27,33 @@
 			3. 여러개의 레코드를 삽입할때
 				insert into 테이블명( 속성명1 , 속성명2 ) values( 값1 , 값2 ), ( 값1 , 값2 ), ( 값1 , 값2 )
 			주의할점 : 속성의 제약조건 에 따라 적절하게 값 대입한다.
-			
+		
+		[2] select 
+			1. 전체 속성에 레코드 조회 , *[와일드카드]
+				select * from 테이블명;
+			2. 특정 속성에 레코드 조회 , 
+				select 속성명1 , 속성명2 from 테이블명;
+			3. 특정 속성 조건에 따른 레코드 조회
+				select * from 테이블명 where [조건절]
+		
+		[3] update 
+			1. 전체 레코드의 속성값 수정 
+				update 테이블명 set 속성명 = 새로운값;
+			2. 특정 레코드의 속성값 수정 
+				update 테이블명 set 속성명 = 새로운값 where [조건절]
+			3. 다수 속성값 수정 
+				update 테이블명 set 속성명 = 새로운값 , 속성명 = 새로운값 where [조건절]
+		
+		[4] delete 
+			1. 전체 레코드 삭제 
+				delete from 테이블명;
+			2. 특정 레코드의 삭제 
+				delete from 테이블명 where [조건절]
+				
+		* mysql workbench safe mode : 조건없이 수정/삭제가 불가능하게 안전모드 지원한다.
+			set SQL_SAFE_UPDATES = 0; 	: safe mode 끄기 
+			set SQL_SAFE_UPDATES = 1; 	: safe mode 켜기(기본값)
+		
 	3. DCL : Data Control Language 데이터베이스 제어어
 	
 	4. TCL : Transaction Control Language 트랜잭션 제어어
