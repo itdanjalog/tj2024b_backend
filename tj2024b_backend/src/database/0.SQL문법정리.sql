@@ -19,7 +19,15 @@
 			2. DROP DATABASE IF EXISTS DB명 		: db server의 지정한 DB 존재하면 제거 
 		
 	2. DML : Data Manipulation Language 데이터베이스 조작어
-	
+		[1] insert 
+			1. 모든 속성에 값 대입 , 속성명 생략 
+				insert into 테이블명 values( 값1 , 값2 , 값3);
+			2. 특정 속성에 값 대입 , 속성명 작성
+				insert into 테이블명( 속성명1 , 속성명2 , 속성명3 ) values( 값1 , 값2 , 값3 );
+			3. 여러개의 레코드를 삽입할때
+				insert into 테이블명( 속성명1 , 속성명2 ) values( 값1 , 값2 ), ( 값1 , 값2 ), ( 값1 , 값2 )
+			주의할점 : 속성의 제약조건 에 따라 적절하게 값 대입한다.
+			
 	3. DCL : Data Control Language 데이터베이스 제어어
 	
 	4. TCL : Transaction Control Language 트랜잭션 제어어
