@@ -46,7 +46,6 @@ public class Dao {
 			if( count == 1 ) { System.out.println("[insert 성공]"); return; }
 		}catch( SQLException e ) { System.out.println( e );}
 		System.out.println("[insert 실패]");
-		
 	} // f end 
 	
 	// 2. select 함수 
@@ -68,10 +67,42 @@ public class Dao {
 	}
 	
 	// 3. update 함수 
+	public void update( ) {
+		try {
+			String sql = "update user set uname='강호동' where uno = 2"; // (1) SQL 작성 
+			PreparedStatement ps = conn.prepareStatement( sql ); // (2) SQL 기재
+			int count = ps.executeUpdate(); // (3) 기재된 SQL 실행 하고 반환받기
+			if( count == 1 ) {  // (4) 반환 결과 제어 
+				System.out.println("[update 성공]"); return;
+			}
+		}catch ( SQLException e) { System.out.println( e ); }
+		System.out.println("[update 실패]");
+	} // f end 
 	
 	// 4. delete 함수 
+	public void delete( ) {
+		try {
+			String sql = "delete from user where uno = 1";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			int count = ps.executeUpdate();
+			if( count == 1 ) {
+				System.out.println("[delete 성공]"); return;
+			}
+		}catch( SQLException e ) { System.out.println( e ); }
+		System.out.println("[delete 실패]");
+	}
 	
 } // class ned 
+
+
+
+
+
+
+
+
+
+
 
 
 
