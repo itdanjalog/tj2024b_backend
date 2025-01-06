@@ -51,3 +51,63 @@ INSERT INTO buy VALUES(NULL, 'APN', '청바지', '패션', 50, 1);
 INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 1);
 INSERT INTO buy VALUES(NULL, 'APN', '혼공SQL', '서적', 15, 1);
 INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 4);
+
+# DML : insert삽입 select조회 update수정 delete삭제
+# [1] 모든 속성의 레코드 조회
+# * : 와일드카드
+# select * from 테이블명; 
+select * from member;
+select * from buy;
+
+# [2] 특정 속성의 레코드 조회 
+# select 속성명 , 속성명 from 테이블명;
+select mid from member;
+select mid , mname from member;
+
+# [3] 속성명과 테이블명에 별칭 , 별칭이란? 조회 결과의 속성명 변경 , 원본 속성명은 그대로 , *다중테이블 조회시 속성명 중복 또는 간소화
+# 속성명 as 별칭 , 주의할점 : as 생략 가능하다.  
+select mid as 회원아이디 from member;						# 조회 결과 'mid' 속성명을 '회원아이디' 로 변경 
+select mid as 회원아이디 , mname as 회원명 from member;		# 조회 결과 'mid'-> '회원아이디' , 'mname'->'회원명' 변경 
+select mid 회원아이디 , mname 회원명 from member;			# as 생략 가능하다.
+select mid 회원아이디 , mname 회원명 from member as m;		# 속성명과 테이블명 에 별칭이 가능하다.
+select mid 회원아이디 , mname 회원명 from member m;			# 주로 as는 생략 한다. 테이블명 간소화 가능.
+
+# [4] 속성값이 중복 인 레코드 제거 
+# distinct 속성명
+select maddr from member;					# maddr(주소) 속성값 레코드 조회
+select distinct maddr from member;			# maddr(주소) 속성값 중복 제거된 레코드 조회 
+
+# [5] 속성값에 산술연산 
+# 산술연산자 : 속성명 + 값 , 속성명 - 값 , 속성명 * 값 , 속성명 / 값 , 속성명 div 값 , 속성명 mod 값  
+select mnumber as 인원수 , mnumber+3 as 더하기 , mnumber-3 as 빼기 , mnumber*3 as 곱셈 , mnumber / 3 as 나눗셈 ,
+	mnumber div as 3 몫 , mnumber mod 3 as 나머지 from member;
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
