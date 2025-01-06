@@ -111,6 +111,78 @@ select * from member where mname like '%핑크';					# 'mname' 속성값이 '핑
 select * from member where mname like '%이%';					# 'mname' 속성값이 '이' 가 포함된 레코드 조회 
 select * from member where mname like '_이_';					# 'mname' 속성값이 '이' 가 두번째 글자인 세글자 값 레코드 조회 
 
+# [7] 정렬 , 조회 결과의 레코드를 특정한 필드 기준으로 정렬 
+# order by 속성명 asc		, [기본값/생략가능]	, 지정한 속성명 기준으로 속성값들을 오름차순 정렬, 작은값 -> 큰값, 과거날짜 -> 최근날짜, ABC,ㄱㄴㄷ
+# order by 속성명 desc					, 지정한 속성명 기준으로 속성값들을 내림차순 정렬, 큰값 -> 작은값, 최근날짜 -> 과거날짜, CBA,ㄷㄴㄱ
+# order by 속성명1 정렬기준 , 속성명2 정렬기준	, 지정한 속성명의 정렬이 2개 이상일때 ,(쉼표)구분하기 , 2차정렬은 1차정렬내 동일한 값 내에서 2차정렬
+select * from member order by mdebut asc;				# 'mdebut' 속성값을 [오름차순] 으로 레코드 조회 
+select * from member order by mdebut desc;				# 'mdebut' 속성값을 [내림차순] 으로 레코드 조회
+select * from member order by mname;					# asc 생략 가능하다.
+#  먼저 'maddr' 속성값을 정렬 후 동일한 속성값이 존재할경우 동일한 속성값 끼리 'mdebut' 정렬한다.
+select * from member order by maddr desc , mdebut asc;	
+
+# [8] 제한 , 조회 결과의 레코드 수 제한 
+# limit 레코드수 
+# limit 시작레코드(0~) , 개수 
+select * from member limit 2;							# 조회 결과의 레코드에서 상위 2개만 조회 제한
+select * from member limit 0 , 2;						# 조회 결과의 레코드에서 0(첫번째)레코드 부터 2개만 조회 제한.
+select * from member limit 2 , 3;						# 조회 결과의 레코드에서 2(세번째)레코드 부터 3개만 조회 제한
+select * from member order by mheight desc limit 3; 	# 'mheight' 가 상위 3개만 조회 제한 
+
+# 실습1 : 주소가 '서울'인 레코드를 데뷔일 기준으로 내림차순으로 조회 결과에 상위 2개만 조회 하시오.
+select * from member ;													# 'member' 테이블 전체 레코드 조회
+select * from member where maddr = '서울'; 								# 'member' 테이블의 'maddr'속성명이 '서울' 인 레코드 조회
+select * from member where maddr = '서울' order by mdebut desc; 			# + 'mdebut'속성명 기준 오름차순 조회
+select * from member where maddr = '서울' order by mdebut desc limit 2;	# + 조회 결과에서 상위 2개만 조회 
+
+# [9] 그룹 
+# group by 그룹속성명 having 그룹조건 
+# 주의할점 : 두 개 이상의 속성명 사용[ 그룹대상의 속성명 값은 동일하더라도 다른 속성명의 값이 다를 수 있으므로 ] 
+select * from buy;									# 'buy' 테이블 전체 레코드 조회
+select bpname from buy group by bpname;				# 'buy' 테이블의 'bpname' 속성명 값을 그룹 , 중복 값이 없다.
+select bpname , bprice from buy group by bpname;	# 오류 : bpname이 동일하더라도 bprice 다를 수 있으므로 
+
+# [10] 집계/통계 함수 + 그룹 
+select bamount from buy;
+select sum( bamount ) from buy;				# 'bamount'(구매수량) 속성명 값들의 합계 
+select avg( bamount ) from buy;				# 'bamount'(구매수량) 속성명 값들의 평균 
+select min( bamount ) from buy;				# 'bamount'(구매수량) 속성명 값들의 최솟값 
+select max( bamount ) from buy;				# 'bamount'(구매수량) 속성명 값들의 최댓값 
+select count( bamount ) from buy;			# 'bamount'(구매수량) 속성명 값들의 개수 		* null 제외한다.
+select count( * ) from buy;					# 'bamount'(구매수량) 속성명 레코드의 개수 	* null 포함한다. 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
