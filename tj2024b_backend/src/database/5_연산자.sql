@@ -151,42 +151,61 @@ select max( bamount ) from buy;				# 'bamount'(구매수량) 속성명 값들의
 select count( bamount ) from buy;			# 'bamount'(구매수량) 속성명 값들의 개수 		* null 제외한다.
 select count( * ) from buy;					# 'bamount'(구매수량) 속성명 레코드의 개수 	* null 포함한다. 
 
+# 1. 회원아이디 별 구매수량 총합계 조회 
+select mid , sum( bamount ) from buy group by mid;	# 'mid' 속성명의 값으로 (중복)그룹 하고 'bamount' 속성명을 집계한 레코드 조회
+# 2. 회원아이디 별 총구매금액 총합계 조회 , 구매수량 * 구매가격
+select mid , sum( bamount * bprice ) from buy group by mid; 
+# 3. 회원아이디 별 구매금액 평균 조회 
+select mid , avg( bprice ) from buy group by mid;
+# 4. 총 구매횟수 조회
+select count(*) from buy;
+# 5. 회원아이디 별 구매횟수 조회 
+select mid , count( bpname ) from buy group by mid;
 
+# [11] having 그룹후조건(별칭사용가능) vs where 그룹전조건(별칭사용불가능)
+# 주의할점 : select 문 에서 컴퓨터가 처리하는 순서 : select [3] from [1] where [2] group by [4] having [5]
+# 1. 구매수량( bamount )이 3 초과 하고 회원아이디별 인 레코드 조회
+select mid from buy where bamount > 3;
+# 2. 회원아이디별 총구매금액( bamount * bprice ) 이 1000 초과 인 레코드 조회 
+select mid , sum( bamount * bprice ) from buy group by mid having sum( bamount * bprice ) >= 1000;
+select mid , sum( bamount * bprice ) as 총구매금액 from buy group by mid having 총구매금액 >=1000;
+select mid , bprice 구매가격 from buy where 구매가격 >= 1000 ;	# 오류 # where 별칭으로 조건속성명 불가능
+select mid , sum( bamount * bprice ) as 총구매금액 where 총구매금액 >= 1000; # 오류 : 집계 후 조건은 where 불가능
 
+# 실습2 : buy 테이블에서 구매수량(bamount) 이 2개 초과 인 레코드 의 회원아이디(mid)별 구매가격(bprice)평균 이 50 이상인 레코드 조회 하시오.
+# +구매가격평균 내림차순 조회 ,  + (구매가격평균) 상위 2개만 조회  
+# 1. buy 테이블에서 구매수량(bamount) 이 2개 초과 인 레코드
+select * from buy where bamount > 2;
+# 2. 회원아이디(mid)별 구매가격(bprice)평균  * ~~별 집계(합계/평균/개수)
+select mid as 회원아이디 , avg(bprice) as 구매가격평균 
+	from buy where bamount > 2 	
+	group by 회원아이디 ;
 
+# 3.구매가격(bprice)평균 이 50 이상 , 구매가격평균은 집계인지 아닌지 판단. 집계이면 having 아니면 where
+select mid as 회원아이디 , avg(bprice) as 구매가격평균 
+	from buy where bamount > 2 
+	group by 회원아이디 having 구매가격평균 >= 50;
 
+# 4. +구매가격평균 내림차순 조회	
+select mid as 회원아이디 , avg(bprice) as 구매가격평균 
+	from buy where bamount > 2 
+	group by 회원아이디 having 구매가격평균 >= 50
+	order by 구매가격평균 desc;
+	
+# 5. +구매가격평균 상위 2개만 조회 
+select 
+	mid as 회원아이디 , avg(bprice) as 구매가격평균 
+	from buy 
+	where bamount > 2 
+	group by 회원아이디 
+	having 구매가격평균 >= 50
+	order by 구매가격평균 desc 
+	limit 0 , 2 ;
 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## [12] select 사용시 여러 절 이 있을때 작성순서
+# select 속성명 from 테이블명 where 조건절 group by 그룹속성명 having 그룹조건 order by 정렬속성명 정렬기준 limit 시작번호,개수
+## select 를 컴퓨터가 처리하는 순서.
+# select [3] from [1] where [2] group by [4] having [5] order by [6] limit [7]
 
 
 
