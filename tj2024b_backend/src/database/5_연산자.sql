@@ -82,19 +82,34 @@ select distinct maddr from member;			# maddr(주소) 속성값 중복 제거된 
 select mnumber as 인원수 , mnumber+3 as 더하기 , mnumber-3 as 빼기 , mnumber*3 as 곱셈 , mnumber / 3 as 나눗셈 ,
 	mnumber div as 3 몫 , mnumber mod 3 as 나머지 from member;
 	
+# [6] 조건절 where
+# 비교연산자 : 속성명 = 값 , 속성명 != 값 ,  
+# 논리연산자 : not 조건 , 조건1 and 조건2 , 조건1 or 조건2
+# 기타연산자 : 속성명 between 시작값 and 끝값 , 속성명 in( 값1, 값2 , 값) , 속성명 is null , 속성명 is not null
+# 문자열패턴 : 속성명 like '문자패턴' 
+#				% : 모든 문자 대응 				ex] 삼성전자/LG전자/물전자 , %전자 -> 삼성전자/LG전자/물전자 
+#				_ : _개수 만큼 문자 대응 		ex] 삼성전자/LG전자/물전자 , _전자 -> 물전자
 
-
-
-
-
-
-
-
-
-
-
-
-
+# 주의할점 : 문자열 처리는 " " 혹은 ' ' 권장 , null은 =같다 불가능
+select * from member where mname = '블랙핑크'; 					# 'mname'속성값이 '블랙핑크' 인 레코드 조회
+select * from member where mnumber = 4;							# 'mnumber'속성값이 4 인 레코드 조회 
+select * from member where mname != '블랙핑크';					# 'mname'속성값이 '블랙핑크'가 아닌 레코드 조회
+select * from member where not mname = '블랙핑크';					# 'mname'속성값이 '블랙핑크'가 아닌 레코드 조회
+select * from member where mheight <= 162;						# 'mheight'속성값이 162 이하 인 레코드 조회
+select * from member where mheight >=165 and mheight <= 170;	# 'mheight'속성값이 165 이상 이면서 'mheight'속성값이 170 이하 인 레코드 조회
+select * from member where mheight between 165 and 170;			# 'mheight'속성값의 165 ~ 170 사이 인 레코드 조회
+# 'maddr'속성값이 '경기' 이거나 'maddr'속성값이 '전남' 이거나 'maddr'속성값이 '경남' 인 레코드 조회
+select * from member where maddr='경기' or maddr='전남' or maddr='경남';	
+select * from member where maddr in( '경기' , '전남' , '경남' );	
+select * from member where mphone1 = ' ';
+select * from member where mphone1 = null;						# !! 속성값이 null 일때는 =같다 불가능.
+select * from member where mphone1 is null;						# 'mphone1' 속성값이 null 인 레코드 조회
+select * from member where mphone1 is not null;					# 'mphone1' 속성값이 null 아닌 레코드 조회
+select * from member where mname like '에이%';					# 'mname' 속성값이 '에이'로 시작하는 레코드 조회
+select * from member where mname like '에이_';					# 'mname' 속성값이 '에이'로 시작하는 세글자 인 레코드 조회
+select * from member where mname like '%핑크';					# 'mname' 속성값이 '핑크'로 끝나는 레코드 조회 
+select * from member where mname like '%이%';					# 'mname' 속성값이 '이' 가 포함된 레코드 조회 
+select * from member where mname like '_이_';					# 'mname' 속성값이 '이' 가 두번째 글자인 세글자 값 레코드 조회 
 
 
 
