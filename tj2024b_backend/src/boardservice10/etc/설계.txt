@@ -1,0 +1,56 @@
+[boardservice10]
+주제 : 회원제 커뮤니티
+
+	1. 주제선정
+	2. 주요기능들 : 회원기능 , 계층(카테고리/댓글)형 게시물기능
+	3. 세부구현기능들
+		- 회원기능 		: 회원가입 , 로그인 , 아이디/비밀번호 찾기 , 내정보 , 회원탈퇴
+		- 게시물기능 		: 쓰기 , 전체조회 , 개별조회 , 수정 , 삭제 
+		- 댓글기능 		: 쓰기 , 현재게시물댓글조회 , 댓글수정 , 댓글삭제
+	4. 화면 flow chart
+	5. DB 설계와 샘플(스프레드시트) --> DB/Table SQL -> SAMPLE INSERT -> ERD다이어그램
+	6. REST API 명세서(스프레드시트) : Controller 매개변수/리턴값 정의서
+	
+	7. JAVA 프로젝트 세팅 : 1.패키지구성 2. 클래스구성 3. 싱글톤 구성 4.DB연동코드 5. DTO 생성 6. AppStart  
+		[ 프로젝트 생성 ]
+		1. 상단 메뉴 => [file] => [new] => [java project] / 없으면[other...] -> java -> javaproject
+		2. 
+			name : 프로젝트관련영문
+			JRE : JAVASE-17			( 팀원 환경과 통일 )
+			[ finish ]
+			
+		[ MVC 패키지 샘플 구성 ] : 패키지를 공란으로 하면 최초 commit/push 에 업로드가 안된다.
+			src
+				controller 패키지 
+					MemberController 클래스 
+				
+				model 패키지 
+					dao 패키지 
+						MemberDao 클래스
+					dto 패키지
+						MemberDto 클래스 
+				view 패키지 
+					MemberView 클래스 
+				
+				AppStart 클래스 
+				
+				etc 패키지 
+					- 부가 파일들 : 설계메모.txt파일 , DBSQL.sql파일 , JDBC.jar파일
+		
+		[ 프로젝트 사용할 외부 라이브러리 ]
+			mysql-connector-j-9.1.0.jar : jdbc(자바-db연동 라이브러리 ) , 파일명 통일성.
+			1. 프로젝트 필요한 라이브러리 .jar 파일들을 프로젝트내 복사해둔다.
+			2. 각 라이브러리 .jar 파일들을 오른쪽 클릭해서 [ build path ] -> [ add to build path ]
+			
+		[ 프로젝트 GIT 올리는 방법 ] : 0.이클립스GIT연동.TXT파일 참고
+		
+	8. 기능별 VIEW - CONTROLLER - DAO 코드 작성하기. 
+		1. 회원가입view - 회원가입controller - 회원가입dao
+		
+		
+		
+		
+		
+		
+		
+	

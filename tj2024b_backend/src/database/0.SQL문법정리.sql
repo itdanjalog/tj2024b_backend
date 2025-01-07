@@ -94,7 +94,10 @@
 	6. foreign key 		: 참조/외래키-FK , 다른 테이블의 기본키를 참조하는 키	
 		- FK필드는 null 과 중복 데이터를 가질수 있다.
 		- 선언 : constraint foreign key( fk필드명 ) references 참조할테이블명( 참조할필드명 )
-		
+			# on update/delete [옵션] : FK가 참조하는 PK가 삭제 또는 수정에 따른 FK의 제약 옵션
+			# restrict(기본값) 	: fk가 pk를 참조 중 이면 pk 레코드를 삭제/수정 불가능
+			# cascade 		  	: pk 값이 삭제/수정 되면 fk 같이 삭제/수정
+	        # set null			: pk 값이 삭제/수정 되면 fk는 참조 없애고 null 변경
 	* 관계형 데이터베이스의 관례적으로 기본키PK 는 테이블당 1개 이상 갖는다.
 		
 		
