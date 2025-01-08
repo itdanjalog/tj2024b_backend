@@ -47,10 +47,13 @@ public class MemberDao {
 	
 	// 3. 아이디찾기 SQL 처리 메소드
 	public String findId( MemberDto memberDto ) {
-		try {// [1] SQL 작성한다.
-			String sql = "select mid from member where mname = '유재석' and mphone = '010-3333-3333' ";
-			// [2] DB와 연동된 곳에 SQL 기재한다.
+		try {// [1] SQL 작성한다.		// mname = '유재석' ---> mname = ? : mname는 어떤 값이 들어갈지 정해져 있지 않다. 매개(중매)변수
+			String sql = "select mid from member where mname = ? and mphone = ? ";
+			// [2] DB와 연동된 곳에 SQL 기재한다. + ?매개변수 값 대입 
 			PreparedStatement ps = conn.prepareStatement(sql);
+				// ps.setString( 1 , "유재석" ); // ps.setString() : mname이 String타입이라서.
+				ps.setString( 1 , memberDto.getMname() );
+				ps.setString( 2 , memberDto.getMphone() );
 			// [3] 기재된 SQL를 실행하고 결과를 받는다.
 			ResultSet rs = ps.executeQuery();
 			// [4] 결과에 따른 처리 및 반환를 한다.
@@ -65,13 +68,15 @@ public class MemberDao {
 	// 4. 비밀번호찾기 SQL 처리 메소드 
 	public String findPwd( MemberDto memberDto ) {
 		try {
-		String sql = "select * from member where mid = 'qwe123' and mphone = '010-3333-3333' ";
-		PreparedStatement ps = conn.prepareStatement(sql);
-		ResultSet rs = ps.executeQuery();
-		if( rs.next() ) {
-			String findPwd = rs.getString("mpwd");
-			return findPwd;
-		} // if end
+			String sql = "select * from member where mid = ? and mphone = ? ";
+			PreparedStatement ps = conn.prepareStatement(sql);
+				ps.setString( 1 , memberDto.getMid() );
+				ps.setString( 2 , memberDto.getMphone() );
+			ResultSet rs = ps.executeQuery();
+			if( rs.next() ) {
+				String findPwd = rs.getString("mpwd");
+				return findPwd;
+			} // if end
 		}catch( SQLException e ) { System.out.println( e ); }
 		return null;
 	} // f end 

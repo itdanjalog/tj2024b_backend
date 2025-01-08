@@ -41,6 +41,14 @@
 			
 		2. PreperedStatement  인터페이스
 			1.추상메소드 : 
+				ps.setXXX( ?순서번호 , 값 );				: SQL문의 존재하는 ?(와일드카드) 의 값 대입 , ?(와일드카드) 1번 시작 , 타입 일치
+					* SQL : insert into member( mid , mpwd , mname ) values( ? , ? , ? );
+						ps.set타입( ?번호 , 값 );		 
+						ps.setString( 1 , "qwe1234" );	: SQL 존재하는 첫번째 ? 에 "qwe123" 값 대입
+						ps.setString( 2 , "a1234" );	: SQL 존재하는 두번째 ? 에 "a1234" 값 대입
+						ps.setString( 3 , "유재석" );		: SQL 존재하는 세번째 ? 에 "유재석" 값 대입
+							-> insert into member( mid , mpwd , mname ) values( "qwe1234" , "a1234" , "유재석" );
+							
 				ps.executeQuery();						: select 기재된 SQL를 실행하고 , 처리된 레코드를 조작할 수 있는 ResultSet 반환 
 				ps.executeUpdate();						: insert,update,delete 기재된 SQL를 실행하고 , 처리된 레코드 수 반환
 				
@@ -56,6 +64,13 @@
 					* 속성명 : 값의 대표적인 이름  , ex]나이  , 속성값 : 값 , ex] 39
 					* 변수명/변수값 , 속성명/속성값 , 멤버변수명/멤버변수값 , 필드명/필드값
 					* XXX : 속성명 의 타입 , SQL int --> JAVA .getInt() , SQL varchar --> JAVA .getString()
+					
+					
+					
+					
+					
+					
+					
 					
 					
 					
