@@ -52,7 +52,19 @@ public class MemberController {
 		loginMno = 0;
 	} // f end 
 	
-	 
+	// 6. 내정보 보기 컨트롤러 메소드 
+	// public 주는것타입 myInfo( 받는타입 받는변수 ) {}
+	public MemberDto myInfo( ) {
+		// - Dao 에게 로그인(로그인된 회원번호PK) 정보 주고 결과 받기 
+		MemberDto result = MemberDao.getInstance().myInfo( loginMno );
+		return result;
+	} // f end 
+	
+	// 7. 회원탈퇴 컨트롤러 메소드 
+	public void delete( ) {
+		MemberDao.getInstance().delete( loginMno );
+	}
+	
 } // class end 
 
 
