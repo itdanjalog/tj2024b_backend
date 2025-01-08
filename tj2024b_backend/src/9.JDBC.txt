@@ -30,37 +30,32 @@
 				
 	4. JDBC 핵심 인터페이스 
 		* 인터페이스이란? 서로 다른 클래스들 간의 동일한 목적하의 서로 다른 기능 수행하는 타입 , *추상메소드
-		1. Connection
+		1. Connection 인터페이스 : DB 서버 와 연동 시도 하고 연동 성공 결과를 반환
 			예] 서로 다른 DB 회사에서 제공하는 클래스들을 하나의 타입(인터페이스)에서 인스턴스를 사용. p.343
-			즉] 서로 다른 DB 회사들은 자바의 Connection 인터페이스의 추상메소드를 구체화 했다.
+			즉] 서로 다른 DB 회사들은 자바의 Connection 인터페이스의 추상메소드를 구체화/구현 했다.
 			Connection conn = DriverManager.getConnection("mysql");
 			Connection conn = DriverManager.getConnection("oracle");
 			Connection conn = DriverManager.getConnection("mariaDB");
-			
 			1.추상메소드 : 
-				.prepareStatement("SQL문법"); 		: 연동된 DB에 SQL문법 기재 .
+				conn.prepareStatement("SQL문법"); 		: 연동된 DB에 SQL문법 기재 하고 PreperedStatement 반환 
 			
-		2. PreperedStatement
-		
-		3. ResultSet
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		2. PreperedStatement  인터페이스
+			1.추상메소드 : 
+				ps.executeQuery();						: select 기재된 SQL를 실행하고 , 처리된 레코드를 조작할 수 있는 ResultSet 반환 
+				ps.executeUpdate();						: insert,update,delete 기재된 SQL를 실행하고 , 처리된 레코드 수 반환
+				
+		3. ResultSet  인터페이스
+			1.추상메소드 
+				rs.next();		: select 결과 조회된 레코드들 중에서 다음 레코드 이동 , 다음레코드가 있으면 true , 없으면 false 반환 
+					* 레코드 : 행/가로 단위 데이터들
+					* 만약에 레코드(행) 6개 이면 next() 는 6번 실행이 가능하다.
+					* 	while( rs.next() ) 회원목록보기 , 게시물전체조회  
+						if( rx.next() ) : 아이디찾기 , 비밀번호찾기 , 로그인 , 게시물개별조회 			
+				
+				rs.getXXX("속성명")	: 현재 ResultSet 가 조회중인 레코드에서 속성값 반환 
+					* 속성명 : 값의 대표적인 이름  , ex]나이  , 속성값 : 값 , ex] 39
+					* 변수명/변수값 , 속성명/속성값 , 멤버변수명/멤버변수값 , 필드명/필드값
+					* XXX : 속성명 의 타입 , SQL int --> JAVA .getInt() , SQL varchar --> JAVA .getString()
+					
+					
+					
