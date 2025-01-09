@@ -129,6 +129,20 @@ public class MemberView {
 		return 1; // 탈퇴 안했다.
 	} // f end 
 	
+	// 8. 회원수정 화면 메소드 
+	public void update() {
+		// 순서 : 1.입력  -> 2.객체화(선택) -> 3.컨트롤러 에게 전달 하고 응답 결과 받기 -> 4. 컨트롤러 의 결과에 따른 처리
+		System.out.print("새로운 비밀번호 : ");		String mpwd = scan.next();
+		System.out.print("새로운 이름 : ");		String mname = scan.next();
+		System.out.print("새로운 전화번호 : ");		String mphone = scan.next();
+		MemberDto memberDto = new MemberDto();
+		memberDto.setMpwd(mpwd); memberDto.setMname(mname); 
+		memberDto.setMphone(mphone);
+		boolean result = MemberController.getInstance().update( memberDto );
+		if( result ) { System.out.println("수정 완료"); }
+		else { System.out.println("수정 실패"); }	
+	} // f end 
+	
 } // class end 
 
 
