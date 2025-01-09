@@ -76,6 +76,50 @@
 		확인시 : git config --global user.email
 		변경시 : git config --global user.email 변경할email주소 
 
+[ 협업 브랜치 ]
+	1. git 담당자 가 팀 저장소에 초대를 한다. 
+	2. 각 팀원들은 초대를 받는다.
+	3. 각 팀원들은 초대 받은 저장소를 클론한다.
+			1. [이클립스] -> 상단메뉴[window]->[show view]-> [other]
+			2. [git] -> [git repository]
+			3. clone a git repository 클릭 -> clone URI 클릭 
+			4. 
+				URI : 클론할 깃 저장소 주소
+				user : git아이디 
+				password : *토큰
+			5. [ next ] -> [ finish ] 
+			
+	4. 클론된 저장소에서 프로젝트를 import 
+		1. 저장소 안에 -->> working tree -->> 프로젝트명 오른쪽 클릭 -->> import 
+
+[ 브랜치 생성 ]
+	1. 프로젝트 폴더 오른쪽 클릭 -->> [team] -->> [switch to] --> [new branch]
+		- 브랜치명은 식별가능하게 정의 --> [finish]
+	2. 브랜치 생성후 커밋=Local저장소 완료 / 푸시=Local저장소를 온라인으로 업로드 하기.
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	
 	
