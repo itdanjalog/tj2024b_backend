@@ -16,7 +16,7 @@ public class BoardView {
 	// 0. (로그인 했을때) 메인 메뉴 메소드 // 로그아웃시 탈출 
 	public void index() {
 		while(true) {
-			// + 게시물 전체조회 
+			findAll();// + 게시물 전체조회 
 			System.out.print("[ 1.로그아웃 2.내정보 3.게시물작성 4.게시물상세보기 ] : ");
 			int choose = scan.nextInt();
 			if( choose == 1 ) { MemberView.getInstance().logout(); break; }
@@ -28,6 +28,14 @@ public class BoardView {
 			else if( choose == 3 ) { }
 			else if( choose == 4 ) { }
 		}// w end 
+	} // f end 
+	
+	// 1. 전체 게시물 조회 화면 
+	public void findAll() {
+		// 1. 컨트롤러 에게 요청하고 결과를 받는다.
+
+		// 2. 결과에 따른 출력
+		
 	} // f end 
 	
 } // class end 
