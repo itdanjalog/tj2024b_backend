@@ -37,7 +37,38 @@ public class BoardDao extends Dao {
 		}catch( SQLException e ) { System.out.println(e); }
 		return list; // 생성된 arraylist 객체 반환
 	}// f end 	
+	
+	// 2. 개별 게시물 SQL 처리 메소드
+	public BoardDto findById( int bno ) {
+		try {
+			String sql="select * from board where bno = ? ";
+			PreparedStatement ps = conn.prepareStatement( sql );
+			ps.setInt( 1 , bno );
+			ResultSet rs = ps.executeQuery();
+			if( rs.next() ) {
+				BoardDto boardDto = new BoardDto(
+						rs.getInt("bno") , rs.getString("btitle") , 
+						rs.getString("bcontent") , rs.getInt("bview") ,
+						rs.getString("bdate") , rs.getInt("mno"),
+						rs.getInt("cno" ));
+				return boardDto;
+		} // if end
+		}catch(SQLException e ) { System.out.println(e);}
+		return null;
+	} // f end 
 } // class end 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
