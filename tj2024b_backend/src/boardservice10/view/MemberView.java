@@ -108,7 +108,7 @@ public class MemberView {
 		while( true ) { // 서브메뉴 
 			System.out.print("1.회원수정 2.회원탈퇴 3.뒤로가기 : ");
 			int choose2 = scan.nextInt();
-			if( choose2 == 1 ) { }
+			if( choose2 == 1 ) { update(); }
 			else if( choose2 == 2 ) { 
 				int state = delete();
 				if( state == 0 ) { return 0; }
