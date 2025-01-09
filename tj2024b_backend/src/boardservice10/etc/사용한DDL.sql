@@ -21,9 +21,9 @@ select * from member where mno = 1; 			# 1번 회원의 정보 조회
 delete from member where mno = 1;
 # JDBC : delete from member where mno = ?;
 
-
-
-
+# [7] 회원수정		update 테이블명 set 속성명 = 새로운값 , 속성명 = 새로운값 where 조건 
+update member set mpwd = 'qwe1' , mname ='유재석' , mphone ='010-4444-4444' where mno = 2;
+# JDBC : update member set mpwd = ? , mname = ? , mphone = ? where mno = ?;
 
 
 
