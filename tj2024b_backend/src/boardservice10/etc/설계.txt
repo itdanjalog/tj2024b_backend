@@ -59,40 +59,19 @@
 		0. DB Connect
 			- JDBC : 자바와 DB의 연동 라이브러리 
 			- DB연동코드 
-														CRUD		DML
-		1. 회원가입view - 회원가입controller - 회원가입dao		C			insert
-		2. 아이디찾기 : view -> controller - dao			R			select
-		3. 비밀번호찾기 : view -> controller - dao			R			select
-		4. 로그인 : view -> controller - dao				R			select
-		5. 로그아웃 : view -> controller					로직			x
-		6. 내정보조회 : view -> controller - dao			R			select
-		7. 회원탈퇴 : view -> controller - dao				D			delete 
+															CRUD		DML
+		1. 회원가입 : view - 회원가입controller - 회원가입dao		C			insert
+		2. 아이디찾기 : view -> controller - dao				R			select
+		3. 비밀번호찾기 : view -> controller - dao				R			select
+		4. 로그인 : view -> controller - dao					R			select
+		5. 로그아웃 : view -> controller						로직			x
+		6. 내정보조회 : view -> controller - dao				R			select
+		7. 회원탈퇴 : view -> controller - dao				D			delete
 		8. 회원수정 : view -> controller - dao				U			update 
-		
+		9. 전체게시물조회 : view -> controller - dao			R			select
+		10.개별게시물조회 : view -> controller - dao			R			select
+
 		* 디자인 패턴 이란 : 프로그래밍 설계 과정에 자주 발생되는 문제점를 해결 하는 설계 방법 제시
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	

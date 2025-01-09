@@ -14,7 +14,7 @@ public class MemberView {
 	
 	private Scanner scan = new Scanner(System.in);
 	
-	// 0. 메인 메뉴 메소드 
+	// 0. (로그인 하기전) 메인 메뉴 메소드 
 	public void run( ) {
 		while(true) {
 			System.out.print("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기 : ");
@@ -60,7 +60,7 @@ public class MemberView {
 	public void findPwd() {
 		// [1] 입력 
 		System.out.print("아이디 : ");	String mid = scan.next();
-		System.out.print("비밀번호 : ");	String mphone = scan.next();
+		System.out.print("전화번호 : ");	String mphone = scan.next();
 		// [2] 객체화 // 데이터포장( view 에서 controller 이동 )
 		MemberDto memberDto = new MemberDto(); 
 		memberDto.setMid(mid);  memberDto.setMphone(mphone);
@@ -82,6 +82,8 @@ public class MemberView {
 		boolean result = MemberController.getInstance().login(memberDto);
 		if( result ) { 
 			System.out.println( "로그인 성공");
+			// BoardView 메인메뉴 메소드 호출 
+			BoardView.getInstance().index();
 		}else {
 			System.out.println( "동일한 회원정보가 없습니다.");
 		}
@@ -104,7 +106,7 @@ public class MemberView {
 		System.out.println("mphone : " + result.getMphone() );
 		System.out.println("mdate : " + result.getMdate() );
 		while( true ) { // 서브메뉴 
-			System.out.println("1.회원수정 2.회원탈퇴 3.뒤로가기 : ");
+			System.out.print("1.회원수정 2.회원탈퇴 3.뒤로가기 : ");
 			int choose2 = scan.nextInt();
 			if( choose2 == 1 ) { }
 			else if( choose2 == 2 ) { delete(); break; } 
@@ -114,7 +116,7 @@ public class MemberView {
 	
 	// 7. 회원탈퇴 화면 메소드 
 	public void delete() {
-		System.out.println("정말 회원 탈퇴 하실건까요? 0:예 1:취소 "); // 버튼 클릭이 없으므로 키보드 입력으로 처리 해야한다.
+		System.out.print("정말 회원 탈퇴 하실건까요?  0:예 1:취소 : "); // 버튼 클릭이 없으므로 키보드 입력으로 처리 해야한다.
 		int choose2 = scan.nextInt();
 		if( choose2 == 0 ) { 
 			MemberController.getInstance().delete(); // - 탈퇴처리 컨트롤러 요청 
