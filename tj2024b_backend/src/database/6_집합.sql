@@ -101,6 +101,29 @@ create table stock(
 
  
  
+# (해답1) 모든 제품(product)테이블 레코드 조회시 모든 속성명을 표시하며 속성명 이 '카테고리번호'  대신에 '카테고리명'을 조회하는 SQL 작성하시오.
+select * from product;					# 테이블명 : 'product' , 모든 속성명을 표시'*'
+select * from product , pcategory ; 	# 카테고리명은 카테고리 테이블에 존재한다. 두 테이블 조회를 해야한다.
+select * from product inner join pcategory on product.카테고리번호_fk = pcategory.카테고리번호_pk; # 두 테이블간의 관계 파악하여 교집합를 한다.
+select product.제품번호_pk , product.제품명 , product.제품가격 , pcategory.카테고리명 
+	from product inner join pcategory on product.카테고리번호_fk = pcategory.카테고리번호_pk; # * 대신에 내가 원하는 속성명을 작성한다.
+# 별칭 : 속성명 as 별칭명 , 테이블명 as 별칭명 , as 생략가능 
+select p.제품번호_pk , p.제품명 , p.제품가격 , pc.카테고리명  
+	from product as p inner join pcategory as pc on p.카테고리번호_fk = pc.카테고리번호_pk; 
+#(해답2) 제품번호 1번의 재고수량 합계를 조회하느 SQL 작성하시오. 그리고 조회시 '제품명' 과 '합계수량' 속성명 만 표시 하시오.
+select * from stock;								# 재고 테이블 조회 
+select * from stock where 제품번호_fk = 1; 			# 제품번호 1번 인 레코드만 조회 
+select sum( 재고수량 ) from stock where 제품번호_fk = 1;	# 제품번호 1번 인 레코드의 재고수량 속성값 총합계
+select sum( s.재고수량 ) as 합계수량 from stock as s inner join product as p on s.제품번호_fk = p.제품번호_pk where s.제품번호_fk = 1; # 두 테이블 조인 
+select p.제품명 as 제품명 , sum( s.재고수량 ) as 합계수량 
+	from stock as s inner join product as p 
+		on s.제품번호_fk = p.제품번호_pk 
+    where s.제품번호_fk = 1;
+
+
+
+
+
  
  
  
