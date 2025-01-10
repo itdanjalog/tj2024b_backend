@@ -28,10 +28,23 @@ update member set mpwd = 'qwe1' , mname ='유재석' , mphone ='010-4444-4444' w
 # [8] 전체 게시물 조회	select * from 테이블명;
 select * from board;
 # JDBC : select * from board;
-
+# [8*] 전체 게시물 조회시 작성자번호 대신에 아이디 로 표시 , 카테고리번호 대신에 카테고리명 표시 
+select b.* , m.mid from board as b inner join member as m on b.mno = m.mno;
+select * from board as b inner join category as c on b.cno = c.cno;
+# [2개이상 조인하기]
+select b.* , c.cname , m.mid
+	from board as b inner join category as c on b.cno = c.cno 
+		inner join member m on b.mno = m.mno;
+	
 # [9] 개별 게시물 조회	select * from 테이블명 where 조건;
 select * from board where bno = 3;
 # JDBC : select * from board bno = ?;
+
+# [2개이상 조인하기]
+select b.* , c.cname , m.mid
+	from board as b inner join category as c on b.cno = c.cno 
+		inner join member m on b.mno = m.mno where b.bno = 3;
+	
 
 
 
