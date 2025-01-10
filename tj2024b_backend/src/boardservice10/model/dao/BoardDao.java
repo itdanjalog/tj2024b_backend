@@ -60,6 +60,7 @@ public class BoardDao extends Dao {
 						rs.getString("bcontent") , rs.getInt("bview") ,
 						rs.getString("bdate") , rs.getInt("mno"),
 						rs.getInt("cno" ));
+				
 				boardDto.setCname( rs.getString("cname" ) );
 				boardDto.setMid( rs.getString("mid") );
 				
