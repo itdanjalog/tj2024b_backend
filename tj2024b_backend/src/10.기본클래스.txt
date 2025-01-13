@@ -51,13 +51,50 @@ String str = 					new String("유재석");
 		[ 리플렉션 ] : 클래스,인터페이스의 타입 정보를 찾아서 확인하는 방법
 		[ 동적 로딩 ] : class 파일를 읽어 들여 class 인스턴스 를 생성하는 방법
 		
-
-
-
-
-
-
-
-
-
+[ Wrapper 클래스 ]
+	1. 기본 타입(8가지) 자료들을 참조타입으로 변환
+	2. 기본 타입은 기능/메소드 이 없다. 기본타입 자료가 메소드를 사용하기 위해서 
+	3. 종류 
+		[기본타입]	 -> [참조타입]
+		boolean -> Boolean
+		byte	-> Byte
+		char	-> Character
+		short	-> Short
+		int		-> Integer
+		long	-> Long
+		float	-> Float
+		double	-> Double
+				-> 오토박싱
+				<- 언박싱
+	4. 오토박싱/언박싱 
+		- 오토박싱 : 기본타입을 참조타입으로 변환 		
+		- 언박싱 : 참조타입을 기본타입으로 변환
+	
+	5. 타입변환
+		* HTTP 웹통신 할때 주로 문자열로 통신 하므로 타입에 대한 *변환* 중요하다.
+		1. 문자열 타입 --> 기본타입 변환
+			1. Integer.parseInt("문자열")
+			2. Double.parseDouble("문자열")
+			3. Float.parseFloat("문자열")
+			4. Byte.parseByte("문자열")
+			5. Short.parseShort("문자열")
+			6. Long.parseLong("문자열")
+			7. Boolean.parseBoolean("문자열")
+				-자료/값 		: "3.14" vs 3.14
+				-타입/값분류 	: 문자열타입 , 실수타입
+		
+		2. 기본 타입 --> 문자열 변환 
+			1. [리터럴]자료 + "";
+			2. String.valueOf( [리터럴]자료 );
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
