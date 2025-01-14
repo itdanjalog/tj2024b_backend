@@ -118,7 +118,7 @@ public class BoardDao extends Dao {
 	// 6. 게시물 삭제 SQL 메소드 , bno : 삭제할 게시물번호  
 	public boolean delete( int bno ) {
 		try {
-			String sql = "delete from board where mno = ?";
+			String sql = "delete from board where bno = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt( 1 , bno);
 			int count = ps.executeUpdate();
