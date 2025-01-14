@@ -69,6 +69,39 @@ public class BoardDao extends Dao {
 		}catch(SQLException e ) { System.out.println(e);}
 		return null;
 	} // f end 
+	
+	// 3. 게시물 쓰기 SQL 메소드 
+	public boolean write( BoardDto boardDto ) {
+		try {
+			String sql = "insert into board(btitle,bcontent,cno,mno) "
+					+ " values(?,?,?,?)";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString( 1 , boardDto.getBtitle() );
+			ps.setString( 2 , boardDto.getBcontent() );
+			ps.setInt( 3 , boardDto.getCno() );
+			ps.setInt( 4 , boardDto.getMno() );
+			int count = ps.executeUpdate();
+			if( count == 1 ) return true;
+		}catch( SQLException e ) { System.out.println(e);}
+		return false;
+	} // f end 
+	// 4.  카테고리 전체 조회 SQL 메소드 
+	public ArrayList<BoardDto> categoryAll(){
+		ArrayList<BoardDto> list = new ArrayList<BoardDto>();
+		try {
+			String sql = "select * from category ";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while( rs.next() ) {
+				BoardDto boardDto = new BoardDto();
+				boardDto.setCno( rs.getInt("cno") ); 
+				boardDto.setCname( rs.getString("cname") );
+				list.add(boardDto);
+			} // w end
+		}catch( SQLException e ) { System.out.println(e);}
+		return list;
+	} // f end 
+	
 } // class end 
 
 
