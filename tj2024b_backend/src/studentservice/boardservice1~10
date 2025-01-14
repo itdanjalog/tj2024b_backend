@@ -1,0 +1,11 @@
+day06 : boardService1 변수 , 입출력함수 , 연산자 , 제어문(조건문/반복문) 
+day07 : boardService2 변수 , 입출력함수 , 연산자 , 제어문(조건문/반복문)  , 클래스/객체(멤버변수)
+day08 : boardService3 변수 , 입출력함수 , 연산자 , 제어문(조건문/반복문)  , 클래스/객체(멤버변수) , 배열
+day09 : boardService4 변수 , 입출력함수 , 연산자 , 제어문(조건문/반복문)  , 클래스/객체(멤버변수/메소드) , 배열
+day10 : boardService5 변수 , 입출력함수 , 연산자 , 제어문(조건문/반복문)  , 클래스/객체(멤버변수/메소드/생성자) , 배열
+day11 : boardService6 변수 , 입출력함수 , 연산자 , 제어문(조건문/반복문)  , 클래스/객체(매개변수/메소드/생성자) , 배열 , 접근제한자, setter/getter
+day12 : boardService7 회원제 게시판
+day13 : boardService8 MVC 패턴 , 싱글톤
+day14 : boardService9 JDBC  , AarrayList
+day~~ : boardService10 :  MVC패턴의 회원제 게시판 , 설계, 상속
+설계링크 : https://docs.google.com/spreadsheets/d/1jFDQFf7iIXldWPsVi7sQR1CqOUr2Vt5g6oI1y6QC17g/edit?usp=sharing
